@@ -18,6 +18,11 @@ var handleError = function(err, res) {
 
 
 route.get('/', function(req, res){
+    res.render('excuse', {title: "Excuse application?"});
+});
+
+
+route.get('/list', function(req, res){
     Excuse.find(function(err, excuses){
         res.send(excuses);
     });
