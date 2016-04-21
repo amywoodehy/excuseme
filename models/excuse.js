@@ -1,9 +1,16 @@
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://172.17.0.2/excuseme');
 
 var excuseSchema = new mongoose.Schema({
-    title: String,
-    body: String,
+    title: {
+        type: String,
+        required: true
+    },
+    body: {
+        type: String,
+        required: true
+    },
     author: {
         type: String,
         default: "Anonymous"
@@ -24,5 +31,7 @@ var excuseSchema = new mongoose.Schema({
 
 
 var Excuse = mongoose.model('Excuse', excuseSchema);
+
+
 
 module.exports = Excuse;
